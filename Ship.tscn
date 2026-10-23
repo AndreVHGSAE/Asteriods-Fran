@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fgutobwtqae8"]
+
+[ext_resource type="Script" uid="uid://chbvroqpxvgl" path="res://ship.gd" id="1_h40nn"]
+[ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="1_xljvd"]
+[ext_resource type="PackedScene" uid="uid://5uurqccfsop3" path="res://Bullet.tscn" id="2_oam5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjdqc"]
+radius = 62.514
+
+[node name="Ship" type="RigidBody2D" unique_id=469292650 node_paths=PackedStringArray("pivot")]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_h40nn")
+bullet = ExtResource("2_oam5h")
+pivot = NodePath("Pivot")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1321656063]
+texture = ExtResource("1_xljvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1200178480]
+shape = SubResource("CircleShape2D_cjdqc")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=731663790]

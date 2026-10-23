@@ -1,14 +1,16 @@
 extends Node2D
-
+# Awake del Godot
 func _init() -> void:
 	pass
 
 # Called when the node enters the scene tree for the first time.
+# Start de Godot
 func _ready() -> void:
 	print_debug("Game Started")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# Update de Godot
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Shoot")) : print_debug ("Shooted")
 	if (Input.is_action_just_pressed("Up")) : print_debug ("Going up")
@@ -17,5 +19,6 @@ func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Right")) : print_debug ("Going right")
 	pass
 
+# Fixed Update de Godot
 func _physics_process(delta: float) -> void:
 	pass

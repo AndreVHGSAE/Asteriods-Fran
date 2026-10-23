@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwf1umabfyw4i"]
+
+[ext_resource type="Script" uid="uid://bwnq1al3ge588" path="res://asteroid.gd" id="1_n00aa"]
+[ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="2_3jv40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjdqc"]
+radius = 63.28507
+
+[node name="Asteroid" type="RigidBody2D" unique_id=819466456]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_n00aa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1252734064]
+texture = ExtResource("2_3jv40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1170579288]
+shape = SubResource("CircleShape2D_cjdqc")
