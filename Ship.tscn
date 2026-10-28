@@ -22,3 +22,4 @@ texture = ExtResource("1_xljvd")
 shape = SubResource("CircleShape2D_cjdqc")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=731663790]
+position = Vector2(0, -88)

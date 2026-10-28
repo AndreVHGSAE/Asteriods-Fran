@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="2_7281b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjdqc"]
-radius = 65.00769
+radius = 18.35756
 
 [node name="Bullet" type="RigidBody2D" unique_id=1611809772]
 gravity_scale = 0.0
@@ -13,6 +13,7 @@ max_contacts_reported = 1
 script = ExtResource("1_4s4u5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=832432926]
+scale = Vector2(0.28125, 0.28125)
 texture = ExtResource("2_7281b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=669386362]
