@@ -1,4 +1,6 @@
-extends Node2D
+class_name GameManager extends Node2D
+
+static var score :  int = 0
 # Awake del Godot
 func _init() -> void:
 	pass
@@ -7,16 +9,13 @@ func _init() -> void:
 # Start de Godot
 func _ready() -> void:
 	print_debug("Game Started")
+	score = 0
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Update de Godot
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("Shoot")) : print_debug ("Shooted")
-	if (Input.is_action_just_pressed("Up")) : print_debug ("Going up")
-	if (Input.is_action_just_pressed("Down")) : print_debug ("Going down")
-	if (Input.is_action_just_pressed("Left")) : print_debug ("Going left")
-	if (Input.is_action_just_pressed("Right")) : print_debug ("Going right")
+
 	pass
 
 # Fixed Update de Godot

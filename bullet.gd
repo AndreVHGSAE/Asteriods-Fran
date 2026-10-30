@@ -15,5 +15,5 @@ func _physics_process(delta: float) -> void:
 	for obj in colliders:
 		if !(obj is Asteroid): continue
 		(obj as Asteroid)._take_dmg()
-		
+		queue_free()
 	pass

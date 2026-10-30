@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://bbmuxrssyj2qx"]
 
-[ext_resource type="Script" uid="uid://o0ecwgjhgbvx" path="res://main.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://o0ecwgjhgbvx" path="res://GameManager.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://b4ha0rn33qwmr" path="res://UpdateUI.gd" id="2_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://fgutobwtqae8" path="res://Ship.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://bwf1umabfyw4i" path="res://Asteroid.tscn" id="3_r0du0"]
 
 [node name="Main" type="Node2D" unique_id=891255995]
 script = ExtResource("1_glv2v")
 
+[node name="UI Display" type="Node" parent="." unique_id=1240764613 node_paths=PackedStringArray("ScoreDisplay")]
+script = ExtResource("2_cm0pq")
+ScoreDisplay = NodePath("TextEdit")
+
+[node name="TextEdit" type="TextEdit" parent="UI Display" unique_id=1916653510]
+offset_right = 148.0
+offset_bottom = 40.0
+placeholder_text = "Score: P"
+
 [node name="Ship" parent="." unique_id=469292650 instance=ExtResource("2_uu6xs")]
 position = Vector2(585, 415)
 
 [node name="Asteroid" parent="." unique_id=819466456 instance=ExtResource("3_r0du0")]
 position = Vector2(587, 121)
+
+[node name="Asteroid2" parent="." unique_id=565785112 instance=ExtResource("3_r0du0")]
+position = Vector2(924, 234)
+
+[node name="Asteroid3" parent="." unique_id=1719199440 instance=ExtResource("3_r0du0")]
+position = Vector2(211, 275)
