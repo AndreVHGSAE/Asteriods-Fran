@@ -6,14 +6,17 @@ class_name Ship extends RigidBody2D
 @export var bullet : PackedScene
 @export var pivot : Node2D
 
+@onready var screen_size = get_viewport_rect().size
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
+	screen_wrap()
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -36,4 +39,21 @@ func _shoot() -> void:
 	get_parent().add_child(bulletObj)
 	bulletObj.global_position = pivot.global_position
 	bulletObj.linear_velocity = Vector2.UP * 1000
+	pass
+	
+func screen_wrap():
+	if position.x > screen_size.x:
+		position.x = 0
+		print_debug ("TP X to left")
+	if position.x < 0:
+		position.x = screen_size.x
+		print_debug ("TP X to right")
+	if position.y > screen_size.y:
+		position.y = 0
+		print_debug ("TP Y to up")
+	if position.y < 0:
+		position.y = screen_size.y
+		print_debug ("TP X to down")
+	#position.x = wrapf(position.x, 0, 1152)
+	#position.y = wrapf(position.y, 0, 648)
 	pass
