@@ -9,14 +9,21 @@
 [node name="Main" type="Node2D" unique_id=891255995]
 script = ExtResource("1_glv2v")
 
-[node name="UI Display" type="Node" parent="." unique_id=1240764613 node_paths=PackedStringArray("ScoreDisplay")]
+[node name="UI Display" type="Node" parent="." unique_id=1240764613 node_paths=PackedStringArray("ScoreDisplay", "LivesDisplay")]
 script = ExtResource("2_cm0pq")
 ScoreDisplay = NodePath("TextEdit")
+LivesDisplay = NodePath("TextEdit2")
 
 [node name="TextEdit" type="TextEdit" parent="UI Display" unique_id=1916653510]
 offset_right = 148.0
 offset_bottom = 40.0
 placeholder_text = "Score: P"
+
+[node name="TextEdit2" type="TextEdit" parent="UI Display" unique_id=779306682]
+offset_top = 41.0
+offset_right = 148.0
+offset_bottom = 81.0
+placeholder_text = "Lives: P"
 
 [node name="Ship" parent="." unique_id=469292650 instance=ExtResource("2_uu6xs")]
 position = Vector2(585, 415)
