@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chbvroqpxvgl" path="res://ship.gd" id="1_h40nn"]
 [ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="1_xljvd"]
-[ext_resource type="PackedScene" uid="uid://5uurqccfsop3" path="res://Bullet.tscn" id="2_oam5h"]
+[ext_resource type="PackedScene" uid="uid://c1bltt5gql6m3" path="res://Piercing_bullet.tscn" id="2_oam5h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjdqc"]
 radius = 62.514

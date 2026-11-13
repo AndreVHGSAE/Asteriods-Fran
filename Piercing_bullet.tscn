@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1bltt5gql6m3"]
+
+[ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="1_co6us"]
+[ext_resource type="Script" uid="uid://chcw5lsv8brvt" path="res://PiercingBullet.gd" id="1_kkn6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkn6q"]
+size = Vector2(121.429306, 127)
+
+[node name="PiercingBullet" type="RigidBody2D" unique_id=640035570]
+scale = Vector2(0.075825274, 0.67308414)
+mass = 0.008
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_kkn6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2046643086]
+texture = ExtResource("1_co6us")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069544050]
+position = Vector2(1.7030002e-06, -0.5)
+scale = Vector2(1.0807225, 1.0040885)
+shape = SubResource("RectangleShape2D_kkn6q")

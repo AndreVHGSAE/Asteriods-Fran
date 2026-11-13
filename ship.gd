@@ -9,13 +9,23 @@ class_name Ship extends RigidBody2D
 @export var pivot : Node2D
 
 var iFrames = 0
+var scene : Node2D
 @export var InitPos = Vector2.ZERO
+var respawn_timer : NeoTimer = NeoTimer.new()
 
 @onready var screen_size = get_viewport_rect().size
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	InitPos = global_position
+	
+	
+	
+	respawn_timer.on_completion.connect(respawn)
+	respawn_timer.done = true
+	scene = get_parent()
+	print_debug("Respawn")
+	
 	pass # Replace with function body.
 
 
@@ -24,6 +34,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
+	respawn_timer.tick(delta)
 	screen_wrap()
 	if iFrames > 0:
 		contact_monitor = false
@@ -38,9 +49,9 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _take_dmg() -> void:
-	hitPoint-=1
-	iFrames = 10
-	global_position = InitPos
+	if iFrames > 0: return
+	despawn()
+	respawn_timer.start(1.5)
 	if hitPoint <= 0:
 		print_debug ("Ship Destroyed")
 		queue_free() #Destroys the object
@@ -49,8 +60,20 @@ func _take_dmg() -> void:
 	global_position = InitPos
 	pass
 	
+func despawn() -> void:
+	hitPoint-=1
+	get_parent().remove_child(self)
+	pass
+
+func respawn(parent : Node2D) -> void:
+	parent.add_child(self)
+	teleport(InitPos)
+	linear_velocity = Vector2.ZERO
+	iFrames = 10
+	pass
+	
 func _shoot() -> void:
-	var bulletObj = (bullet.instantiate() as Bullet)
+	var bulletObj = (bullet.instantiate() as ABullet)
 	get_parent().add_child(bulletObj)
 	bulletObj.global_position = pivot.global_position
 	bulletObj.linear_velocity = Vector2.UP * 1000
@@ -60,16 +83,12 @@ func screen_wrap():
 	#Detecta tu posición de los 4 laods individuales
 	if global_position.x > screen_size.x:
 		global_position.x = 1
-		print_debug ("TP X to left")
 	if global_position.x < -1:
 		global_position.x = screen_size.x
-		print_debug ("TP X to right")
 	if global_position.y > screen_size.y:
 		global_position.y = 1
-		print_debug ("TP Y to up")
 	if global_position.y < -1:
 		global_position.y = screen_size.y
-		print_debug ("TP X to down")
 	#position.x = wrapf(position.x, 0, 1152)
 	#position.y = wrapf(position.y, 0, 648)
 	pass

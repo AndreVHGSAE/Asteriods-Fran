@@ -21,3 +21,5 @@ texture = ExtResource("2_7281b")
 shape = SubResource("CircleShape2D_cjdqc")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1102023227]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=279162345]
