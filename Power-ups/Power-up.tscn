@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://h7a0h3c6qj6n"]
+
+[ext_resource type="Script" uid="uid://vupiucikj5tu" path="res://Power-ups/PiercingBulletPU.gd" id="1_5trcy"]
+[ext_resource type="Texture2D" uid="uid://cypstmx6ff6gr" path="res://icon.svg" id="2_of0l5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eft3"]
+size = Vector2(127, 129)
+
+[node name="PowerUp" type="RigidBody2D" unique_id=757153062]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5trcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1468999934]
+texture = ExtResource("2_of0l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=336639953]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_0eft3")

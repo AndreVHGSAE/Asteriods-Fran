@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://b4ha0rn33qwmr" path="res://UpdateUI.gd" id="2_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://fgutobwtqae8" path="res://Ship.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://bwf1umabfyw4i" path="res://Asteroid.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://5uurqccfsop3" path="res://Bullet.tscn" id="4_lgr22"]
 [ext_resource type="Script" uid="uid://24d7b5p0o2me" path="res://Hard_Asteroid.gd" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://h7a0h3c6qj6n" path="res://Power-ups/Power-up.tscn" id="7_trn2v"]
 
 [node name="Main" type="Node2D" unique_id=891255995]
 script = ExtResource("1_glv2v")
@@ -27,6 +29,7 @@ placeholder_text = "Lives: P"
 
 [node name="Ship" parent="." unique_id=469292650 instance=ExtResource("2_uu6xs")]
 position = Vector2(585, 415)
+bullet = ExtResource("4_lgr22")
 
 [node name="Asteroid" parent="." unique_id=819466456 instance=ExtResource("3_r0du0")]
 position = Vector2(587, 121)
@@ -37,3 +40,6 @@ script = ExtResource("5_fos0i")
 
 [node name="Asteroid3" parent="." unique_id=1719199440 instance=ExtResource("3_r0du0")]
 position = Vector2(211, 275)
+
+[node name="PowerUp" parent="." unique_id=2088772032 instance=ExtResource("7_trn2v")]
+position = Vector2(851, 407)
